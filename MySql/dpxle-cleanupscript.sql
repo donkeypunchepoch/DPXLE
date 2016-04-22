@@ -1,0 +1,11 @@
+DELETE FROM construction_history WHERE destroyed_at < NOW() - INTERVAL 7 DAY;
+DELETE FROM container_history WHERE destroyed_at < NOW() - INTERVAL 7 DAY;
+DELETE FROM vehicle_history WHERE destroyed_at < NOW() - INTERVAL 7 DAY;
+DELETE FROM item_buy_history WHERE date_time < NOW() - INTERVAL 7 DAY;
+DELETE FROM item_sell_history WHERE date_time < NOW() - INTERVAL 7 DAY;
+DELETE FROM lock_history WHERE logged_at < NOW() - INTERVAL 7 DAY;
+DELETE FROM poptab_send_history WHERE date_time < NOW() - INTERVAL 7 DAY;
+DELETE FROM veh_buy_history WHERE date_time < NOW() - INTERVAL 7 DAY;
+DELETE FROM veh_paint_history WHERE date_time < NOW() - INTERVAL 7 DAY;
+DELETE FROM waste_history WHERE date_time < NOW() - INTERVAL 7 DAY;
+DELETE FROM player_history WHERE died_at < NOW() - INTERVAL 7 DAY;
