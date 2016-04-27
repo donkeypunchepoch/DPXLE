@@ -4,6 +4,24 @@ ALTER TABLE `player_history`
 	ADD COLUMN `kUID` VARCHAR(32) NOT NULL;
 	ALTER TABLE `player_history`
 	ADD COLUMN `distance` INT(11) NOT NULL;
+  ALTER TABLE `player_history`
+  ADD COLUMN `weapon` VARCHAR(64) NOT NULL;
+  ALTER TABLE `player_history`
+  ADD COLUMN `direction` INT(11) NOT NULL;
+  ALTER TABLE `player_history`
+  ADD COLUMN `vdirection` INT(11) NOT NULL;
+  ALTER TABLE `player_history`
+  ADD COLUMN `khealth` INT(11) NOT NULL;
+  ALTER TABLE `player_history`
+  ADD COLUMN `dpos` INT(11) NOT NULL;
+  ALTER TABLE `player_history`
+  ADD COLUMN `kpos` INT(11) NOT NULL;
+  ALTER TABLE `player_history`
+  ADD COLUMN `speed` INT(11) NOT NULL;
+  ALTER TABLE `player_history`
+  ADD COLUMN `krespect` INT(11) NOT NULL;
+    ALTER TABLE `player_history`
+  ADD COLUMN `type` VARCHAR(64) NOT NULL;
 	
 CREATE TABLE `vehicle_history` (
  `id` varchar(32) NOT NULL,
