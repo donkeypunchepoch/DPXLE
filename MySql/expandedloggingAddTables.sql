@@ -20,8 +20,18 @@ ALTER TABLE `player_history`
   ADD COLUMN `speed` INT(11) NOT NULL;
   ALTER TABLE `player_history`
   ADD COLUMN `krespect` INT(11) NOT NULL;
-    ALTER TABLE `player_history`
+  ALTER TABLE `player_history`
   ADD COLUMN `type` VARCHAR(64) NOT NULL;
+
+ALTER TABLE `construction`
+ADD COLUMN `pos` VARCHAR(64) NOT NULL;
+ALTER TABLE `vehicle`
+ADD COLUMN `pos` VARCHAR(64) NOT NULL;
+ALTER TABLE `container`
+ADD COLUMN `pos` VARCHAR(64) NOT NULL;
+ALTER TABLE `territory`
+ADD COLUMN `pos` VARCHAR(64) NOT NULL;
+
 	
 CREATE TABLE `vehicle_history` (
  `id` varchar(32) NOT NULL,
