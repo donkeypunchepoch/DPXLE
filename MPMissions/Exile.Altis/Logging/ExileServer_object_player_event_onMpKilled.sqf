@@ -4,7 +4,6 @@
  * Exile Mod
  * www.exilemod.com
  * © 2015 Exile Mod Team
- * DP UP TO DATE FILE 3.6.2016
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. 
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
@@ -16,11 +15,15 @@ _killer = _this select 1;
 _kName = name _killer;
 _kUID = getPlayerUID _killer;
 _kDistance = floor(_victim distance _killer);
+_weapon = currentWeapon _killer;
+_speed = speed _victim;
+_direction = direction _killer;
+_vdirection = direction _victim;
+_khealth = round ((1 - (damage _killer)) * 100);
 if( isNull _victim ) exitWith {};
 _victim setVariable ["ExileDiedAt", time];
 if !(isPlayer _victim) exitWith {};
 _victimPosition = getPos _victim;
-format["insertPlayerHistory:%1:%2:%3:%4:%5:%6:%7:%8", getPlayerUID _victim, name _victim, _victimPosition select 0, _victimPosition select 1, _victimPosition select 2, _kName, _kUID, _kDistance] call ExileServer_system_database_query_fireAndForget;
 format["deletePlayer:%1", _victim getVariable ["ExileDatabaseId", -1]] call ExileServer_system_database_query_fireAndForget;
 _victim setVariable ["ExileIsDead", true];
 _victim setVariable ["ExileName", name _victim, true]; 
@@ -33,6 +36,7 @@ _fragAttributes = [];
 if (_victim isEqualTo _killer) then
 {
 	["systemChatRequest", [format["%1 commited suicide!", (name _victim)]]] call ExileServer_object_player_event_killFeed;
+	_fragAttributes pushBack "Suicide";
 }
 else 
 {
@@ -273,6 +277,7 @@ else
 		};
 	};
 };
+format["insertPlayerHistory:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17", getPlayerUID _victim, name _victim, _victimPosition select 0, _victimPosition select 1, _victimPosition select 2, _kName, _kUID, _kDistance, _weapon, _direction, _vdirection, _khealth, str(mapGridPosition getPos _victim), str(mapGridPosition getPos _killer), _speed, _killerRespectPoints, _fragAttributes] call ExileServer_system_database_query_fireAndForget;
 if (_addDeathStat isEqualTo true) then
 {
 	_newVictimDeaths = _victim getVariable ["ExileDeaths", 0];

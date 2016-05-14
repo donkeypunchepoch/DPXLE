@@ -32,4 +32,9 @@ class CfgExileCustomCode
 	ExileServer_system_trading_network_sendMoneyRequest = "Logging\ExileServer_system_trading_network_sendMoneyRequest.sqf";
 	
 	ExileServer_system_network_dispatchIncomingMessage = "Logging\ExileServer_system_network_dispatchIncomingMessage.sqf";
+	
+	ExileServer_object_vehicle_database_update = "Logging\ExileServer_object_vehicle_database_update.sqf";
+	ExileServer_object_container_database_update = "Logging\ExileServer_object_container_database_update.sqf";
+	ExileServer_system_territory_database_insert = "Logging\ExileServer_system_territory_database_insert.sqf";
+	ExileServer_object_construction_database_insert = "Logging\ExileServer_object_construction_database_insert.sqf";
 };	
